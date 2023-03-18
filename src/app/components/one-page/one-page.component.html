@@ -1,0 +1,39 @@
+<div>
+  <div>Mail: {{ user?.email }}</div>
+  <div>Webkarma: {{ user?.webkarma }}</div>
+</div>
+
+<div *ngIf="user?.role == 'ADMIN'">
+  Ajout domaine avec empreinte carbonne
+  <div>
+    <form>
+      <div>
+        <label for="domain">Nom de domaine</label>
+        <label for="footprint">Empreinte carbonne</label>
+      </div>
+      <div>
+        <input type="text" id="domain" [(ngModel)]="sites.domain" name="domain" required />
+        <input type="text" id="footprint" [(ngModel)]="sites.footprint" name="footprint" required />
+      </div>
+    </form>
+  </div>
+  <div>
+    <div>
+      <button (click)="saveNewSite()">Ajouter le site web</button>
+    </div>
+  </div>
+  <div *ngIf="newSiteAddResult.length != 0">
+    <div *ngIf="!newSiteAddResult.status; else newSiteCreate">
+      ID: {{ newSiteAddResult?._id }}<br>
+      Nom de domaine: {{ newSiteAddResult?.domain }}<br>
+      Empreint carbonne: {{ newSiteAddResult?.footprint }}<br>
+    </div>
+    <ng-template #newSiteCreate>
+      <div>
+        {{ newSiteAddResult?.status }}
+      </div>
+    </ng-template>
+  </div>
+</div>
+
+<div>Conseils pour améliorer son empreinte énergétique</div>
