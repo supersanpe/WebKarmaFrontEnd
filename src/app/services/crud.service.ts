@@ -11,7 +11,8 @@ import { Sites } from '../models/sites.model';
 export class CrudService {
   constructor(private http: HttpClient) {}
 
-  private url = 'http://192.168.33.10:3000/api';
+  //private url = 'http://192.168.33.10:3000/api';
+  private url = 'http://localhost:3000/api';
 
   /*getAllUsers(): Observable<Users[]> {
     return this.http.get<Users[]>(`${this.url}/users`);
