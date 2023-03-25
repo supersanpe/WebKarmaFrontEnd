@@ -1,5 +1,5 @@
 <header class="header">
-  <h1>WebKarma</h1>
+  <h1 class="title">WebKarma</h1>
   <div class="button logout" *ngIf="isLoggedIn()">
       <button (click)="logout()">Déconnexion</button>
   </div>
@@ -7,18 +7,17 @@
 <main class="main">
   <div class="container">
     <div class="content" *ngIf="!isLoggedIn()">
-      <p>Description de WebKarma</p>
+      <p class="description">WebKarma est une application web qui comptabilise l'impact énergétique de votre navigation internet.
+        A chaque clique ou recherche le coût ("général") de cet acte est ajouté et comptabilisé dans votre WebKarma,
+        vous pouvez suivre au jour le jour votre "Web karma" sur ce site.</p>
       <div class="login">
-        <button (click)="login()">Connexion</button>
+        <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+        <button (click)="login()">Se connecter</button>
       </div>
-      <p>Connexion Google</p>
     </div>
     <div class="content" *ngIf="isLoggedIn()">
       <router-outlet></router-outlet>
     </div>
   </div>
 </main>
-<footer class="footer">
-  <p>Mentions légales / Conditions d'utilisation</p>
-  <p>© WebKarma</p>
-</footer>
+
